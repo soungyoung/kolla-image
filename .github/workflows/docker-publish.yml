@@ -25,7 +25,7 @@ env:
 
 jobs:
   get-kolla-images:
-    runs-on: centos-latest
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout
@@ -33,7 +33,7 @@ jobs:
 
     # Log into aliyun registry
     - name: Log into aliyun registry
-      run: echo "${{ secrets.ALIYUN_PASSWORD }}" | docker login -u ${{ secrets.ALIYUN_USERNAME }} $ALIYUN_REGISTRY --password-stdin
+      run: docker login -u ${{ secrets.ALIYUN_USERNAME }} -p ${{ secrets.ALIYUN_PASSWORD }}  $ALIYUN_REGISTRY
       
     # clone kolla repo
     - name: clone kolla repo
