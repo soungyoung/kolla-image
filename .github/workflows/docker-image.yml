@@ -62,7 +62,7 @@ jobs:
     # pull and push images
     - name: pull and push images
       run: |
-        images=$(cat images.txt | grep solum)
+        images=$(cat images.txt | grep storm)
         count=$(echo "$images" |wc -l)
         icount=1
         for image in $images
