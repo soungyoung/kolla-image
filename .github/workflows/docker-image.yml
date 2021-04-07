@@ -62,7 +62,7 @@ jobs:
     # pull and push images
     - name: pull and push images
       run: |
-        images=$(cat images.txt | grep swift)
+        images=$(cat images.txt | grep telegraf)
         count=$(echo "$images" |wc -l)
         icount=1
         for image in $images
