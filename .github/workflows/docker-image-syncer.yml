@@ -38,10 +38,10 @@ jobs:
     # get images list
     - name: get images list
       run: |
-        sed -i "s#USER#${{ secrets.ALIYUN_USERNAME }}#g" config.json
-        sed -i "s#PASS#${{ secrets.ALIYUN_PASSWORD }}#g" config.json
+        sed -i "s#USER#${{ secrets.ALIYUN_USERNAME }}#g" ./.docker/config.json
+        sed -i "s#PASS#${{ secrets.ALIYUN_PASSWORD }}#g" ./.docker/config.json
         wget https://github.com/AliyunContainerService/image-syncer/releases/download/v1.3.0/image-syncer-v1.3.0-linux-amd64.tar.gz
         tar -zxvf image-syncer-v1.3.0-linux-amd64.tar.gz
-        ./image-syncer --proc=50 --config=./config.json --registry=registry.cn-hangzhou.aliyuncs.com --namespace=bzh-kolla --retries=2 --log=./log
+        ./image-syncer --proc=50 --config=./.docker/config.json --registry=registry.cn-hangzhou.aliyuncs.com --namespace=bzh-kolla --retries=2 --log=./log
 
         
