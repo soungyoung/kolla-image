@@ -62,7 +62,7 @@ jobs:
     # pull and push images
     - name: pull and push images
       run: |
-        images=$(cat images.txt | grep tempest)
+        images=$(cat images.txt | grep tgtd)
         count=$(echo "$images" |wc -l)
         icount=1
         for image in $images
